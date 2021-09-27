@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+include "sample-cpi"
+project (":sample-cpi").projectDir = file("sample-cpi")
+
+include "sample-cpi:iflow-CPI"
+project (":sample-cpi:iflow-CPI").projectDir = file("sample-cpi/CPI")
