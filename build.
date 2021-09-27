@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+plugins {
+    id 'com.figaf.cpi-plugin' version '2.0.RELEASE' apply false
+}
+
+configure(subprojects.findAll()) { sub ->
+
+    apply plugin: 'idea'
+    apply plugin: 'groovy'
+
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+
+    if (sub.name.startsWith("iflow-")) {
+
+        apply plugin: 'com.figaf.cpi-plugin'
+
+        cpiPlugin {
+            url = cpiUrl
+            username = cpiUsername
+            password = cpiPassword
+            platformType = cloudPlatformType
+            waitForStartup = true
+            sourceFilePath = "$project.projectDir".toString()
+            uploadDraftVersion = true
+            artifactType = "CPI_IFLOW"
+        }
+
+    } else if (sub.name.startsWith("vm-")) {
+
+        apply plugin: 'com.figaf.cpi-plugin'
+
+        cpiPlugin {
+            url = cpiUrl
+            username = cpiUsername
+            password = cpiPassword
+            platformType = cloudPlatformType
+            waitForStartup = true
+            sourceFilePath = "$project.projectDir".toString()
+            uploadDraftVersion = true
+            artifactType = "VALUE_MAPPING"
+        }
+    }
+}
