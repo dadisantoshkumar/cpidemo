@@ -5,8 +5,8 @@ pluginManagement {
     }
 }
 
-include "sample-cpi"
-project (":sample-cpi").projectDir = file("sample-cpi")
+include "Demo_test"
+project (":Demo_test").projectDir = file("Demo_test")
 
-include "sample-cpi:iflow-CPI"
-project (":sample-cpi:iflow-CPI").projectDir = file("sample-cpi/CPI")
+include "Demo_test:iflow-Demo"
+project (":Demo_test:iflow-Demo").projectDir = file("Demo_test/Demo")
