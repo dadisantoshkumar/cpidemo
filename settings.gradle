@@ -5,8 +5,8 @@ pluginManagement {
     }
 }
 
-include "Demo_test"
-project (":Demo_test").projectDir = file("Demo_test")
+include "cpidemo"
+project (":cpidemo").projectDir = file("cpidemo")
 
-include "Demo_test:iflow-Demo"
-project (":Demo_test:iflow-Demo").projectDir = file("Demo_test/Demo")
+include "cpidemo:iflow-cpidemo1"
+project (":cpidemo:iflow-cpidemo1").projectDir = file("cpidemo/cpidemo1")
